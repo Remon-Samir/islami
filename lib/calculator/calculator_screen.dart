@@ -158,7 +158,7 @@ class _CalculatorState extends State<Calculator> {
     return res.toString();
   }
 
-  onEqual() {
+  onEqual(text) {
     String rhs = resText;
     res = calculate(rhs, operator, res);
     resText = res;
