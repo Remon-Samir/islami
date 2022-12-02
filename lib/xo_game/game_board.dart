@@ -112,14 +112,17 @@ class _GameBoardState extends State<GameBoard> {
   int counter = 0;
 
   onButtonClick(int index) {
+    print('on button click $counter');
     if (boardText[index].isNotEmpty) {
       return;
     }
     if (counter % 2 == 0) {
-      boardText[index] = 'x';
+      boardText[index] = 'X';
     } else {
       boardText[index] = 'O';
     }
+    counter++;
+
     if (cehckWinner('X') == true) {
       player1score += 5;
       emptyBoard();
@@ -130,7 +133,6 @@ class _GameBoardState extends State<GameBoard> {
     } else if (counter == 9) {
       emptyBoard();
     }
-    counter++;
     setState(() {});
   }
 
@@ -169,6 +171,7 @@ class _GameBoardState extends State<GameBoard> {
     boardText = ['', '', '', '', '', '', '', '', ''];
     counter = 0;
     setState(() {});
+    print('empty board $counter');
   }
 }
 
